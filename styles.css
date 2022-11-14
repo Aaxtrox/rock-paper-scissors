@@ -96,3 +96,36 @@ a{
     text-decoration: none;
     color: #fff;
 }
+
+/* media query */
+@media only screen and (max-width: 990px) {
+    /* header */
+    header{
+        height: 100px;
+    }
+    h1{
+        font-size: 50px;
+    }
+    /* main */
+    .titleOne{
+        font-size: 30px;
+        height: 80px;
+    }
+    button{
+        margin: 0px 20px 20px 20px;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    .score{
+        font-size: 30px;
+    }
+    .round{
+        font-size: 30px;
+    }
+    /* footer */
+    footer{
+        font-size: 20px;
+    }
+}

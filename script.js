@@ -47,3 +47,17 @@ function playerSelection() {
     const playerChoice = document.getElementById('playerChoice').firstChild.id;
     return playerChoice;
 }
+
+//function computerSelection
+function computerSelection() {
+    const computerChoice = computerPlay();
+    //if computerChoice = rock display rock image in div id computerChoice adn give id rock
+    if (computerChoice === 'rock') {
+        document.getElementById('computerChoice').innerHTML = '<img src="./img/rock.png" alt="rock" id="rock">';
+    } else if (computerChoice === 'paper') {
+        document.getElementById('computerChoice').innerHTML = '<img src="./img/paper.png" alt="paper" id="paper">';
+    } else if (computerChoice === 'scissors') {
+        document.getElementById('computerChoice').innerHTML = '<img src="./img/scissors.png" alt="scissors" id="scissors">';
+    }
+    return computerChoice;
+}

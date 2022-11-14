@@ -32,3 +32,11 @@ buttons.forEach((button) => {
         game();
     });
 });
+
+
+//randomly select rock, paper, or scissors
+function computerPlay() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomChoice = Math.floor(Math.random() * 3);
+    return choices[randomChoice];
+}

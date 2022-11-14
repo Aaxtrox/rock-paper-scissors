@@ -28,8 +28,7 @@ buttons.forEach((button) => {
         } else if (id === 'scissors') {
             document.getElementById('playerChoice').innerHTML = '<img src="./img/scissors.png" alt="scissors" id="scissors">';
         }
-        //call game function
-        game();
+        playRound(playerSelection, computerSelection);
     });
 });
 
@@ -60,4 +59,31 @@ function computerSelection() {
         document.getElementById('computerChoice').innerHTML = '<img src="./img/scissors.png" alt="scissors" id="scissors">';
     }
     return computerChoice;
+}
+
+//function playRound
+function playRound(playerSelection, computerSelection) {
+    const player = playerSelection();
+    const computer = computerSelection();
+    if (player === computer) {
+        //display tie innerHTML in div id round
+        document.getElementById('round').innerHTML = 'Tie!';
+        return 'tie';
+    } else if (player === "rock" && computer === "scissors") {
+        //display win innerHTML in div id round
+        document.getElementById('round').innerHTML = 'You Win!';
+        return 'win';
+    } else if (player === "paper" && computer === "rock") {
+        //display win innerHTML in div id round
+        document.getElementById('round').innerHTML = 'You Win!';
+        return 'win';
+    } else if (player === "scissors" && computer === "paper") {
+        //display win innerHTML in div id round
+        document.getElementById('round').innerHTML = 'You Win!';
+        return 'win';
+    } else {
+        //display lose innerHTML in div id round
+        document.getElementById('round').innerHTML = 'You Lose!';
+        return 'lose';
+    }
 }

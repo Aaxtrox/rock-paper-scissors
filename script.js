@@ -28,7 +28,8 @@ buttons.forEach((button) => {
         } else if (id === 'scissors') {
             document.getElementById('playerChoice').innerHTML = '<img src="./img/scissors.png" alt="scissors" id="scissors">';
         }
-        playRound(playerSelection, computerSelection);
+        //call game function
+        game();
     });
 });
 
@@ -85,5 +86,50 @@ function playRound(playerSelection, computerSelection) {
         //display lose innerHTML in div id round
         document.getElementById('round').innerHTML = 'You Lose!';
         return 'lose';
+    }
+}
+
+//function game
+function game() {
+    let playResult = playRound(playerSelection, computerSelection);
+    if (playResult === 'win') {
+        playerScore++;
+    } else if (playResult === 'lose') {
+        computerScore++;
+    } else {
+        return;
+    }
+    //display playerScore in span id playerScore
+    document.getElementById('playerScore').innerHTML = playerScore;
+    //display computerScore in span id computerScore
+    document.getElementById('computerScore').innerHTML = computerScore;
+
+    // if playerScore = 5 log 'You Win!' and reset playerScore and computerScore
+    if (playerScore === 5) {
+        //clear playerChoice div
+        document.getElementById('playerChoice').innerHTML = '';
+        //clear computerChoice div
+        document.getElementById('computerChoice').innerHTML = '';
+        //clear round div
+        document.getElementById('round').innerHTML = '';
+        //if playerScore = 5 reset playerScore and computerScore
+        playerScore = 0;
+        computerScore = 0;
+        //display in div id round Winner, winner, chicken dinner!
+        document.getElementById('round').innerHTML = 'Winner, winner, chicken dinner!';
+    } else if (computerScore === 5) {
+        //clear playerChoice div
+        document.getElementById('playerChoice').innerHTML = '';
+        //clear computerChoice div
+        document.getElementById('computerChoice').innerHTML = '';
+        //clear round div
+        document.getElementById('round').innerHTML = '';
+        // if computerScore = 5 reset playerScore and computerScore
+        playerScore = 0;
+        computerScore = 0;
+        //display in div id round Looser!
+        document.getElementById('round').innerHTML = 'Looser!';
+    } else {
+        return;
     }
 }

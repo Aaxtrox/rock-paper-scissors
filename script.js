@@ -40,3 +40,10 @@ function computerPlay() {
     const randomChoice = Math.floor(Math.random() * 3);
     return choices[randomChoice];
 }
+
+//function playerSelection
+function playerSelection() {
+    //get img id of playerChoice div
+    const playerChoice = document.getElementById('playerChoice').firstChild.id;
+    return playerChoice;
+}
